@@ -1,4 +1,4 @@
-# Whois API
+# Whois & DNS Lookup API
 
 1. Install Ruby:  
 [Link](https://www.ruby-lang.org/en/documentation/installation/)
