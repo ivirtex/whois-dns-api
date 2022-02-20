@@ -56,7 +56,7 @@ fastify.get("/dns/:query", (req, rep) => {
 
 const start = async () => {
   try {
-    await fastify.listen(PORT);
+    await fastify.listen(PORT, HOSTNAME);
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
