@@ -19,12 +19,14 @@ fastify.get("/whois/:query", (req, rep) => {
     if (err) {
       console.error(err);
 
+      rep.code(400);
       rep.send({ status: "fail", message: err.message });
     }
 
     if (stderr) {
       console.error(stderr);
 
+      rep.code(400);
       rep.send({ status: "fail", message: stderr });
     }
 
