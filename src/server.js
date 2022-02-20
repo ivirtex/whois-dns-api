@@ -7,7 +7,8 @@ const fastify = Fastify({
   logger: true,
 });
 
-const PORT = 3000;
+const PORT = 2137;
+const HOSTNAME = "0.0.0.0";
 
 fastify.get("/whois/:query", (req, rep) => {
   // @ts-ignore
@@ -29,7 +30,7 @@ fastify.get("/whois/:query", (req, rep) => {
 
 const start = async () => {
   try {
-    await fastify.listen(PORT);
+    await fastify.listen(PORT, HOSTNAME);
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
