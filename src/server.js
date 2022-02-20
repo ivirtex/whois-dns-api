@@ -28,7 +28,9 @@ fastify.get("/whois/:query", (req, rep) => {
       rep.send({ status: "fail", message: stderr });
     }
 
-    rep.send({ status: "success", response: stdout });
+    // Replace \r\n with \n
+    const output = stdout.replace(/\r\n/g, "\n");
+    rep.send({ status: "success", response: output });
   });
 });
 
@@ -56,7 +58,7 @@ fastify.get("/dns/:query", (req, rep) => {
 
 const start = async () => {
   try {
-    await fastify.listen(PORT, HOSTNAME);
+    await fastify.listen(PORT);
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
