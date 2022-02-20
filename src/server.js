@@ -37,7 +37,7 @@ fastify.get("/dns/:query", (req, rep) => {
   const { query } = req.params;
 
   console.log(`Launching process for DNS Lookup query: ${query}`);
-  exec(`echo ${query} | ../zdns A`, (err, stdout, stderr) => {
+  exec(`echo ${query} | ./zdns_arm64 A`, (err, stdout, stderr) => {
     if (err) {
       console.error(err);
 
